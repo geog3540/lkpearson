@@ -1,2 +1,2 @@
 # Geo vis portfolio 
-This portfolio has the assignments and links to the final project for geo vis
+### This portfolio has all of my assignments from geographic visualisation and links to the final project
