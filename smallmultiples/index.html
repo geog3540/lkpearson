@@ -116,10 +116,10 @@
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////
 	// TODO: Change the variables below to customize the small multiples interface for your data
-	var polygonJSONFile = 'data/assign8_germany.geojson'
+	var polygonJSONFile = 'data/chicago.geojson'
 	// change the projection if needed *d3.geoAlbers()*
 	var projection = d3.geoAlbers();
-	var widthheightRatio = 0.8;
+	var widthheightRatio = 0.4;
 	// Relative placement of legend that ranges between 0 and 1.
 	// 0 is the start, whereas 1 i the end of each panel.
 	// If you want to put the legend on the left, then use 0.
@@ -127,10 +127,10 @@
 	var legendX = 0.84, legendY = 0.5
 
 	// id attribute and the name attribute to be used in the tooltip
-	var idAttribute = 'id', nameAttribute = 'id';
+	var idAttribute = 'area_numbe', nameAttribute = 'Community Area Number';
 
 	// Find the abbreviations of color names from https://colorbrewer2.org/
-	var colors =  colorbrewer.YlGnBu;
+	var colors =  colorbrewer.Y1OrBr;
 
 	// Chart/map attributes (variables) and formats based on the divs defined above
 	// For attribute 1 (the same for all others), see the description of the parameters below.
@@ -146,20 +146,20 @@
 
   // enter below all variables that should be recalculated. The order of attributes should match with
 	// the list of multiply and divide by values
-  //var attributesToBeNormalized = [att1, att4];
+  var attributesToBeNormalized = [att1];
 	// If you would like to multiple the variables
 	// with a constant value enter them in multiplyBy array. If there is no need for multiplication,
 	// simply enter 1 for each value in multiplyBy.
-	//var multiplyBy = [1, 1];
+	var multiplyBy = [100];
 	// Enter the attribute name that you want to normalize (divide by).
 	// If you want to only multiply an attribute but not divide by another attribute
 	// then simply put null as the attribute name in the same order of the attribute.
-	//var divideBy = 'null', 'null'];
+	var divideBy = 'POP'];
 	// if your variables are not raw counts and they are already normalized, comment out above, and
 	//uncomment below:
-	 var attributesToBeNormalized = [];
-	 var multiplyBy = [];
-	 var divideBy = [];
+	 //var attributesToBeNormalized = [];
+	 //var multiplyBy = [];
+	 //var divideBy = [];
 
 	//DO NOT CHANGE ANYTHING BELOW THIS POINT UNLESS YOU KNOW WHAT YOU ARE DOING
 	////////////////////////////////////////////////////////////////////////////////////////////////
