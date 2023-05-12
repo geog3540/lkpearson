@@ -116,7 +116,7 @@
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////
 	// TODO: Change the variables below to customize the small multiples interface for your data
-	var polygonJSONFile = 'data/chicago.geojson'
+	var polygonJSONFile = 'data/achicago.geojson'
 	// change the projection if needed *d3.geoAlbers()*
 	var projection = d3.geoAlbers();
 	var widthheightRatio = 0.4;
@@ -139,10 +139,10 @@
 	// att1format: enter the d3.format string to display the variables in the format you like
 	// Check this link on how to specify the desired format:
 	// https://observablehq.com/@d3/d3-format
-	var att1 = 'lungDeathPerYear', att1alias = 'Lung Cancer Death Density per 10,000', att1format = '.0f',
-	att2 = 'pctSmokers', att2alias =  '% Smokers', att2format = '.0f',
-	att3 = 'healthCosts', att3alias = '$ Spent', att3format = '.0f',
-	att4 = 'numSr', att4alias = '% 65+', att4format = '.0f';
+	var att1 = 'UNI', att1alias = 'Lung Cancer Death Density per 10,000', att1format = '.0f',
+	att2 = 'DIS', att2alias =  '% Smokers', att2format = '.0f',
+	att3 = 'PCT_C', att3alias = '$ Spent', att3format = '.0f',
+	att4 = 'INC', att4alias = '% 65+', att4format = '.0f';
 
   // enter below all variables that should be recalculated. The order of attributes should match with
 	// the list of multiply and divide by values
