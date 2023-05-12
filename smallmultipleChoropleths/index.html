@@ -53,12 +53,12 @@
 	<div class="container">
 		<div class="content">
 			<div class="row">
-					<h1>Cancer in Iowa</h1>
+					<h1>German Population by Age Group</h1>
 			</div>
 			<hr />
 			<div class="row">
 				<div class="col-sm-4">
-					<p>Data from <a href="data.iowa.gov">Data.Iowa.gov</a>, maps by Ryan Larson & Caglar Koylu.</p>
+					<p>Data from <a href=" https://regionalatlas.statistikportal.de/#">German Census</a>, maps by Lauren Pearson</p>
 				</div>
 				<div class='col-sm-8 mapButtons'>
 					<span class="pull-right">
@@ -82,12 +82,12 @@
 			<br />
 			<div class="row">
 				<div class="col-sm-6">
-					<span><p><h3 class='mapTitle'>Lung Cancer</h3>Yearly average number of deaths from lung cancer per 10,000.</p></span>
+					<span><p><h3 class='mapTitle'>Years 0-17</h3>Percentage of German Population 0-17 Years Old</p></span>
 					<div id="divMap1"></div>
 					<div id="divHist1"></div>
 				</div>
 				<div class="col-sm-6">
-					<h3 class='mapTitle'>Adult Smokers</h3><p>Percentage of adult population who smoke.</p>
+					<h3 class='mapTitle'>Years 18-44</h3><p>Percentage of German Population 18-44 Years Old</p>
 					<div id="divMap2"></div>
 					<div id="divHist2"></div>
 				</div>
@@ -95,12 +95,12 @@
 
 			<div class="row">
 				<div class="col-sm-6">
-					<h3 class='mapTitle'>Healthcare Cost</h3><p>Average cost of healthcare.</p>
+					<h3 class='mapTitle'>Years 44-64</h3><p>Percentage of German Population 44-64 Years Old</p>
 					<div id="divMap3"></div>
 					<div id="divHist3"></div>
 				</div>
 				<div class="col-sm-6">
-					<h3 class='mapTitle'>Senior Citizens</h3><p>Percentage of population above 65 years old.</p>
+					<h3 class='mapTitle'>Years 65+</h3><p>Percentage of German Population 65 Years Old and Older</p>
 					<div id="divMap4"></div>
 					<div id="divHist4"></div>
 				</div>
@@ -116,11 +116,7 @@
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////
 	// TODO: Change the variables below to customize the small multiples interface for your data
-<<<<<<< HEAD:smallmultipleChoropleths/index.html
-	var polygonJSONFile = 'data/achicago.geojson'
-=======
-	var polygonJSONFile = 'data/out.geojson'
->>>>>>> parent of fb0b29a (Update index.html):smallmultiples/index.html
+	var polygonJSONFile = 'data/assign8_germany_all_ages.geojson'
 	// change the projection if needed *d3.geoAlbers()*
 	var projection = d3.geoAlbers();
 	var widthheightRatio = 0.4;
@@ -131,14 +127,10 @@
 	var legendX = 0.84, legendY = 0.5
 
 	// id attribute and the name attribute to be used in the tooltip
-<<<<<<< HEAD:smallmultipleChoropleths/index.html
-	var idAttribute = 'area_numbe', nameAttribute = 'Community Area Number';
-=======
-	var idAttribute = 'FIPS', nameAttribute = 'County';
->>>>>>> parent of fb0b29a (Update index.html):smallmultiples/index.html
+	var idAttribute = 'id', nameAttribute = 'gen';
 
 	// Find the abbreviations of color names from https://colorbrewer2.org/
-	var colors =  colorbrewer.YlOrBr;
+	var colors =  colorbrewer.YlGnBu;
 
 	// Chart/map attributes (variables) and formats based on the divs defined above
 	// For attribute 1 (the same for all others), see the description of the parameters below.
@@ -147,42 +139,27 @@
 	// att1format: enter the d3.format string to display the variables in the format you like
 	// Check this link on how to specify the desired format:
 	// https://observablehq.com/@d3/d3-format
-<<<<<<< HEAD:smallmultipleChoropleths/index.html
-	var att1 = 'UNI', att1alias = 'Lung Cancer Death Density per 10,000', att1format = '.0f',
-	att2 = 'DIS', att2alias =  '% Smokers', att2format = '.0f',
-	att3 = 'PCT_C', att3alias = '$ Spent', att3format = '.0f',
-	att4 = 'INC', att4alias = '% 65+', att4format = '.0f';
-=======
-	var att1 = 'lungDeathPerYear', att1alias = 'Lung Cancer Death Density per 10,000', att1format = '.0f',
-	att2 = 'pctSmokers', att2alias =  '% Smokers', att2format = '.0f',
-	att3 = 'healthCosts', att3alias = '$ Spent', att3format = '.0f',
-	att4 = 'numSr', att4alias = '% 65+', att4format = '.0f';
->>>>>>> parent of fb0b29a (Update index.html):smallmultiples/index.html
+	var att1 = 'All_Ages_wert_17', att1alias = '% Population 0-17', att1format = '.0f',
+	att2 = 'All_Ages_wert_44', att2alias =  '% Population 18-44', att2format = '.0f',
+	att3 = 'All_Ages_wert_64', att3alias = '% Population 45-64', att3format = '.0f',
+	att4 = 'All_Ages_wert_65p', att4alias = '% Population 65+', att4format = '.0f';
 
   // enter below all variables that should be recalculated. The order of attributes should match with
 	// the list of multiply and divide by values
-  var attributesToBeNormalized = [att1];
+  //var attributesToBeNormalized = [att1, att4];
 	// If you would like to multiple the variables
 	// with a constant value enter them in multiplyBy array. If there is no need for multiplication,
 	// simply enter 1 for each value in multiplyBy.
-<<<<<<< HEAD:smallmultipleChoropleths/index.html
-	var multiplyBy = [100];
+	//var multiplyBy = [1, 1];
 	// Enter the attribute name that you want to normalize (divide by).
 	// If you want to only multiply an attribute but not divide by another attribute
 	// then simply put null as the attribute name in the same order of the attribute.
-	var divideBy = ['POP'];
-=======
-	var multiplyBy = [10000, 100];
-	// Enter the attribute name that you want to normalize (divide by).
-	// If you want to only multiply an attribute but not divide by another attribute
-	// then simply put null as the attribute name in the same order of the attribute.
-	var divideBy = ['Population', 'Population'];
->>>>>>> parent of fb0b29a (Update index.html):smallmultiples/index.html
+	//var divideBy = 'null', 'null'];
 	// if your variables are not raw counts and they are already normalized, comment out above, and
 	//uncomment below:
-	// var attributesToBeNormalized = [];
-	// var multiplyBy = [];
-	// var divideBy = [];
+	 var attributesToBeNormalized = [];
+	 var multiplyBy = [];
+	 var divideBy = [];
 
 	//DO NOT CHANGE ANYTHING BELOW THIS POINT UNLESS YOU KNOW WHAT YOU ARE DOING
 	////////////////////////////////////////////////////////////////////////////////////////////////
